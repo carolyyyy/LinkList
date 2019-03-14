@@ -1,0 +1,21 @@
+//有序带头结点的链表合并
+void   MergeList_L (LinkList &La，LinkList &Lb，LinkList &Lc) {
+    IntSLLNode *pa = La->link ; 
+    IntSLLNode *pb = Lb->link ;//分别指向第一个结点
+    IntSLLNode *pc;
+    Lc = pc = La ;
+    while  ( pa && pb )  {
+        if  ( pa->data <= pb->data )   {
+            pc->link = pa ;
+            pc = pa ;
+            pa = pa->link;
+        }
+        else  {  
+            pc->link = pb ;
+            pc = pb ;
+            pb = pb->link ;
+        } 
+    }
+    pc->link = pa ? pa : pb ;//处理剩余部分
+    delete  Lb ;
+}
