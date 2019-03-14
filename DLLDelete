@@ -1,0 +1,14 @@
+template<class T>
+T deleteFromDLLTail() {
+    T el = tail->info;
+    if (head == tail) { // 链表中仅有一个结点
+         delete head;
+         head = tail = 0;
+    }
+    else {              // 链表中不只一个结点
+         tail = tail->prev;
+         delete tail->next;
+         tail->next = 0;
+    }
+    return el;
+}
