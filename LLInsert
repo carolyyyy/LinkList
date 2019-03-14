@@ -1,0 +1,8 @@
+void addToHead(int el) {
+   if (tail != 0) {      // 如果链表不为空
+         tail->next = new IntSLLNode(el);
+         tail = tail->next;
+    }
+    //向空链表插入
+    else head = tail = new IntSLLNode(el);
+}
