@@ -1,0 +1,8 @@
+template<class T>
+void addToDLLTail(const T& el) {
+    if (tail != 0) {
+         tail = new DLLNode<T>(el,0,tail);
+         tail->prev->next = tail;
+    }
+    else head = tail = new DLLNode<T>(el);
+}
