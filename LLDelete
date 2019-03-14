@@ -1,0 +1,22 @@
+void deleteNode(int el) {
+    if (head != 0){                     // 如果链表不为空
+         if (head == tail && el == head->info) { // 如果链表只有一个结点
+              delete head;                       
+              head = tail = 0;
+         }
+         else if (el == head->info) {  // 删除头结点
+              IntSLLNode *tmp = head;
+              head = head->next;
+              delete tmp;              // 删除原头结点
+         }
+         else {    // 如果链表不只一个结点
+              IntSLLNode *pred, *tmp;
+              for (pred = head, tmp = head->next; tmp != 0 && !(tmp->info == el);pred = pred->next, tmp = tmp->next);//要删除的结点不是头结点
+              if (tmp != 0) 
+                   pred->next = tmp->next;
+              if (tmp == tail)
+                   tail = pred;
+              delete tmp;
+         }
+    }
+} 
